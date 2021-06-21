@@ -18,11 +18,11 @@
   },
   "homepage": "https://bitbucket.org/adopisowifi/portal-stress-tests#readme",
   "dependencies": {
-    "jest": "^27.0.4",
-    "jest-puppeteer": "^5.0.4",
-    "puppeteer": "^9.1.1"
+    "macaddress": "^0.5.2",
+    "puppeteer": "^9.1.1",
+    "randomstring": "^1.2.1"
   },
   "scripts": {
-    "test": "jest -i tests/portal.test.js -t \"STRESS TESTING\""
+    "start": "node index.js"
   }
 }
