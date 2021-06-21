@@ -1,8 +1,26 @@
 {
+  "name": "portal-stress-tests",
+  "version": "1.0.0",
+  "description": "",
+  "main": "jest.config.js",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/adopisowifi/portal-stress-tests.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://bitbucket.org/adopisowifi/portal-stress-tests/issues"
+  },
+  "homepage": "https://bitbucket.org/adopisowifi/portal-stress-tests#readme",
   "dependencies": {
     "jest": "^27.0.4",
     "jest-puppeteer": "^5.0.4",
-    "puppeteer": "^10.0.0"
+    "puppeteer": "^9.1.1"
   },
   "scripts": {
     "test": "jest -i tests/portal.test.js -t \"STRESS TESTING\""
