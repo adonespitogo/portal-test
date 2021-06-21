@@ -1,6 +1,7 @@
 
 const puppeteer = require('puppeteer');
-const change_mac = require('./helpers/change_mac.js')
+const get_mac_address = require('./helpers/get_mac_address.js')
+const AddSession = require('./helpers/add_session.js')
 const CLICK_INTERVAL = 10 * 1000 // 10s
 
 class StressTest {
@@ -22,6 +23,11 @@ class StressTest {
     await this.loop()
   }
 
+  async addSession() {
+    var add_session = new AddSession(this.page, this.server_host)
+    await add_session.toMAC(await get_mac_address())
+  }
+
   async loadPortalPage() {
     await this.page.goto(this.portal_url, { waitUntil: 'networkidle0' });
   }
@@ -36,7 +42,7 @@ class StressTest {
   }
 
   async sessionBtn () {
-    return await this.page.$("#sessions-list-con .table .btn");
+    return await this.page.$("#sessions-list-con .table .btn").catch(e => null);
   }
 
   //async isRunning() {
@@ -49,10 +55,13 @@ class StressTest {
   //}
 
   async toggleSession() {
-    await change_mac()
     await this.loadPortalPage()
     await this.page.waitForSelector('#sessions-list-con')
     const button = await this.sessionBtn();
+    if (!button) {
+      await this.addSession()
+      return this.toggleSession()
+    }
     await button.click()
   }
 
