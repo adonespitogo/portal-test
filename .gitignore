@@ -2,3 +2,4 @@ node_modules/*tags
 tags.*
 *.swp
 /node_modules
+tags
