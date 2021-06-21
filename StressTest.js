@@ -28,15 +28,7 @@ class StressTest {
 
   async loop() {
     while(true) {
-      await this.loadPortalPage()
-
-      if (!(await this.isRunning())) {
-        await change_mac()
-        await this.loadPortalPage()
-      }
-
       await this.toggleSession()
-
       await new Promise(r => {
         setTimeout(r, CLICK_INTERVAL)
       })
@@ -47,17 +39,18 @@ class StressTest {
     return await this.page.$("#sessions-list-con .table .btn");
   }
 
-  async isRunning() {
-    const button = await this.sessionBtn();
-    const isRunning = await button.getProperty('className')
-      .then(v => v.jsonValue())
-      .then(classNames => classNames.split(' '))
-      .then(classNames => classNames.includes('btn-warning'))
-    return isRunning
-  }
+  //async isRunning() {
+  //  const button = await this.sessionBtn();
+  //  const isRunning = await button.getProperty('className')
+  //    .then(v => v.jsonValue())
+  //    .then(classNames => classNames.split(' '))
+  //    .then(classNames => classNames.includes('btn-warning'))
+  //  return isRunning
+  //}
 
   async toggleSession() {
-    const wasRunning = await this.isRunning()
+    await change_mac()
+    await this.loadPortalPage()
     await this.page.waitForSelector('#sessions-list-con')
     const button = await this.sessionBtn();
     await button.click()
