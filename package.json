@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "jest": "^27.0.4",
+    "jest-puppeteer": "^5.0.4",
+    "puppeteer": "^10.0.0"
+  },
+  "scripts": {
+    "test": "jest -i tests/portal.test.js -t \"STRESS TESTING\""
+  }
+}

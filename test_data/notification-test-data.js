@@ -1,0 +1,35 @@
+const notifcationTestData = {
+    restart_notif: "Please restart the machine in order for the new settings to take effect.",
+    saved_toast_msg: "Settings saved successfully",
+    reboot_toast_msg: "The machine will reboot in 3 seconds",
+    reboot_nav_msg: "The wifi machine is restarting. Please reconnect when the machine is up.",
+    sessions_updated_toast_msg: "Existing sessions updated.",
+    global_sessions_updated_toast_msg: "Global bandwidth changed, please restart for the settings to take effect.",
+    activated_toast_msg: "License key activated successfully",
+    invalid_license_toast_msg : "Invalid license key",
+    invalid_email_pwd_toast_msg : "Invalid email or password",
+    invalid_net_address: "Invalid net address",
+    invalid_mask: "Invalid mask for ip4",
+    invalid_dns: "Invalid DNS server",
+    file_saved_successfully: "File saved successfully.",
+    saved_successfully: "Saved successfully.",
+    saved: "Saved.",
+    removed_file_successfully: "Removed file successfully.",
+    file_removed_successfully: "File removed successfully.",
+    updated_successfully: "Updated successfully",
+    copied_successfully: "Copied successfully",
+    variant_switched_successfully: "Variant switched to undefined",
+    removed_successfully: "Removed successfully.",
+    account_updated_successfully: "Account updated successfully",
+    config_successfully_deleted: "Config successfully deleted",
+    account_successfully_created: "Account successfully created",
+    account_removed_successfully: "Account removed successfully",
+    device_added_successfully: "Device added successfully",
+    created: "created",
+    session_removed_succefully: "Session removed successfully",
+    device_successfully_blocked: "Device successfully blocked",
+    backup_restored_successfully: "Backup restored successfully."
+  };
+  
+  module.exports = notifcationTestData;
+  
