@@ -9,6 +9,9 @@ module.exports = async (command_str) => {
   var args = command_str.split(' ')
   var cmd = args.splice(0, 1)
 
+  // VBOX mac is not supporting changing mac inside of VM
+  return 'ok'
+
   return await new Promise((resolve, reject) => {
     var onError =  e => reject(e)
 
