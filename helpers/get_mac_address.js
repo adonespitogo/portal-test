@@ -2,5 +2,5 @@
 var macaddress = require('macaddress');
 
 module.exports = async () => {
-  return await macaddress.one()
+  return await macaddress.one().toUpperCase()
 }
