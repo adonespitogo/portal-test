@@ -41,6 +41,7 @@ class Admin {
     await wifi_devices_link.click()
     await this.page.waitForSelector('#search-wifi-device')
     await this.page.type('#search-wifi-device', this.mac_address)
+    await new Promise(resolve => setTimeout(resolve, 2000))
     const device_link = await this.page.$('.wifi-users .table tbody tr .btn-info')
     await device_link.click()
     await this.page.waitForXPath(`//*[contains(., 'Manage Device')]`)
