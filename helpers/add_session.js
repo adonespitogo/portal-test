@@ -40,8 +40,12 @@ class Admin {
     const [ wifi_devices_link ] = await sideNav.$x("//a[contains(., 'WiFi Devices')]");
     await wifi_devices_link.click()
     await this.page.waitForSelector('#search-wifi-device')
-    //await this.page.type('#search-wifi-device', this.mac_address)
-    await this.page.evaluate((text) => { (document.getElementById('search-wifi-device')).value = text; }, this.mac_address)
+    await this.page.evaluate((text) => {
+      var e = document.getElementById('search-wifi-device');
+      e.value = text;
+      var $e = angular.element(e);
+      $e.triggerHandler('input');
+    }, this.mac_address)
     await new Promise(resolve => setTimeout(resolve, 2000))
     const device_link = await this.page.$('.wifi-users .table tbody tr .btn-info')
     await device_link.click()
